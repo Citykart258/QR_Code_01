@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Citykart Voucher Enrollment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      background: white;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      text-align: center;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #d32f2f;
+    }
+    h3 {
+      color: #00796b;
+    }
+    .red-banner {
+      background-color: #d32f2f;
+      color: white;
+      padding: 8px;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #00796b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <img src="https://cdn.glitch.global/d3b9e096-0e28-4bd7-8c69-fbf7159583ed/image.jpeg.jpeg?v=1746288846094" alt="Citykart Banner" width="511" height="362">
+  
+ 
+  <head>
+    <style>
+      h2 {
+        font-size: 20px;
+      }
+  
+      h3 {
+        font-size: 29px;
+      }
+    </style>
+  </head>
+  <body>
+  <h2> Dear Customer,Please Enroll with Citykart and </h2>
+  <h3>Get Discount Voucher</h3>
+
+  <div class="red-banner">प्रिय ग्राहक, सिटीकार्ट के साथ जुड़ें और पाएं डिस्काउंट वाउचर</div>
+
+  <form action="https://script.google.com/macros/s/AKfycbzknntl9GGw4IyohmmJ2G_7065RFvAQhzkJTF7WhGJ6x7mhG7yXSutiEWnqtI2ugpsfnw/exec" method="POST" onsubmit="showThankYou(event)">
+    
+       <input type="hidden" name="formName" value="QR_Code-01"/>
+    
+    <label for="mobile" style="text-align: left; display: block;">
+      Please Enroll Your Mobile Number* :-
+      <br>मोबाइल नंबर दर्ज करें* :-
+    </label>
+    <input type="tel"  
+    maxlength="10"
+    inputmode="numeric"
+    pattern="[0-9]{10}"
+    oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+    id="mobile" 
+    name="mobile"  
+    required placeholder="Enter 10-digit mobile number">
+
+<label style="text-align: left; display: block;">Please Select Your State*:-
+  <br>कृपया अपना प्रदेश चुने* :-
+</label>
+
+<select name="state" id="state" required onchange="updateCities()">
+<option value="">Select State</option>
+<option value="Uttar Pradesh">Uttar Pradesh</option>
+<option value="Bihar">Bihar</option>
+<option value="Arunachal pradesh">Arunachal pradesh</option>
+<option value="Assam">Assam</option>
+<option value="Chhattisgarh">Chhattisgarh</option>
+<option value="Jammu & Kashmir">Jammu & Kashmir</option>
+<option value="Jharkhand">Jharkhand</option>
+<option value="Madhya Pradesh">Madhya Pradesh</option>
+<option value="New Delhi">New Delhi</option>
+<option value="Orissa">Orissa</option>
+<option value="Tripura">Tripura</option>
+<!-- Add more -->
+</select>
+
+<label style="text-align: left; display: block;">Please Select Your City*:-
+  <br>कृपया अपना शहर चुने* :-
+</label>
+
+<select name="city" id="city" required>
+  <option value="">Select City</option>
+</select>
+
+<button type="submit">Submit</button>
+
+
+</form>
+</div>
+
+
+<script>
+const citiesByState = {
+"Uttar Pradesh": ["Allahabad","Ballia","Dildarnagar","Barabanki","Ghaziabad","Shahjahanpur","Lakimpur Kheri","Faizabad","Buduan","Unnao","Lucknow","Padrauna","Jhansi","Mirzapur","Varanasi","Bahraich","Nautanwa","Gonda","Gola",
+"Azamgarh","Mahoba","Robertsganj-I","Mughalsarai","Kanpur","Etawah","Gorakhpur","Maharajganj","Renukoot","Jaunpur","Agra","Raibareli","Pilibhit","Sultanpur","Hardoi",
+"Deoria"],
+"Tripura": ["Agartala"],
+"Orissa": ["Kendrapara","Sambalpur","Sonepur","Jharsuguda","Phulbani"],
+"New Delhi": ["Burari","Kapashera"],
+"Madhya Pradesh": ["Chhatarpur"],
+"Jharkhand": ["Hazaribagh","Dumka","Ranchi"],
+"Chhattisgarh": ["Ambikapur"],
+"Bihar": ["Sitamarhi","Jamalpur","Siwan","Mokama","Arrah","Patna","Narkatiaganj","Patna","Madhepura","Patna","Jogbani",
+"Supaul","Chapara","Motihari","Aurangabad","Darbhanga","Hajipur","Begusarai","Buxer","Forbesganj","Samastipur","Purnia","Sheikhpura",
+"Nawada","Samastipur","Madhubani","Naugachia","Saharsa","Begusarai","Darbhanga","Siwan","Patna","Muzaffarpur","Madhepura",
+"Patna","GAYA","KHAGARIA","KISHANGANJ[BIHAR]","JAMUI","SHEOHAR","KATIHAR","BETTIAH","ROHTAS","MAHNAR"],
+"Assam": ["Guwahati","Jorhat","Silchar","Rangia","Barpeta Town","Goalpara","Guwahati","Dibrugarh","Tezpur"],
+"Arunachal pradesh": ["Naharlagun"],
+"Jammu & Kashmir": ["Anantnag"]};
+
+function updateCities() {
+const state = document.getElementById("state").value;
+const citySelect = document.getElementById("city");
+citySelect.innerHTML = '<option value="">Select City</option>'; 
+
+if (citiesByState[state]) {
+citiesByState[state].forEach(city => {
+  const option = document.createElement("option");
+  option.value = city;
+  option.textContent = city;
+  citySelect.appendChild(option);
+});
+}
+}
+
+</script>
+
